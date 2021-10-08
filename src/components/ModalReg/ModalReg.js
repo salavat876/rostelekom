@@ -1,15 +1,14 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { makeStyles } from '@mui/styles';
 import {Alert, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Modal, TextField} from "@mui/material";
 import {Map, Placemark, YMaps} from "react-yandex-maps";
 import {useState} from "react";
 import axios from "axios";
 import {API_KEY} from "../../consts";
+import {useDispatch} from "react-redux";
+import {closeWindowModal} from "../../redux/actions/modalWindowAction";
 
 const style = {
     position: 'absolute',
@@ -27,6 +26,7 @@ function ModalReg(props) {
     const [userInput,setUserInput] = useState('');
     const [defaultCor, setDefaultCoor] = useState([55.751574, 37.573856]);
     const [visibleAlert,setVisibleAlert] = useState(true)
+    const dispatch = useDispatch()
 
     const handleUserInput = (e) => {
         setUserInput(e.target.value)
@@ -57,7 +57,7 @@ function ModalReg(props) {
     <Modal
     style={{border:'none'}}
     open={props.open}
-    onClose={props.handleClose}
+    onClose={()=>dispatch(closeWindowModal())}
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
 >

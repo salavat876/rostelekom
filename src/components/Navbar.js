@@ -10,7 +10,10 @@ import {Map, Placemark, YMaps} from "react-yandex-maps";
 import {useState} from "react";
 import axios from "axios";
 import {API_KEY} from "../consts";
-import ModalReg from './ModalReg/ModalReg';
+import ModalReg from "./ModalReg/ModalReg";
+import {useDispatch, useSelector} from "react-redux";
+import {modalWindowAction, openModalVolunteer, openVolunteer} from "../redux/actions/modalWindowAction";
+import ModalVolunteer from "./ModalVolunteer/ModalVolunteer";
 
 const useStyles = makeStyles({
   toolbar: {
@@ -19,13 +22,29 @@ const useStyles = makeStyles({
     
   },
 });
-
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 export default function NavBar() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
     const classes = useStyles();
+    const open = useSelector(({window})=> window.isOpen);
+    const openVolunteer = useSelector(({window})=>window.isOpenVolunteer)
+    const dispatch = useDispatch();
+
+    const handleOpenModal = () => {
+        dispatch(modalWindowAction())
+    }
+    const handleOpenVolunteer = () => {
+        dispatch(openModalVolunteer())
+    }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar  position="static" style={{backgroundColor:'#ffff'}} >
@@ -36,13 +55,11 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Домой
           </Typography>
-          <Button onClick={handleOpen}  variant="contained" color="primary" style={{textTransform: "none",marginRight:10}}>Подписаться на рассылку</Button>
-            <Button variant="contained" style={{textTransform: "none", backgroundColor:'#f82020'}}>Стать волонтером</Button>
+          <Button onClick={handleOpenModal}  variant="contained" color="primary" style={{textTransform: "none",marginRight:10}}>Подписаться на рассылку</Button>
+            <Button onClick={handleOpenVolunteer} variant="contained" style={{textTransform: "none", backgroundColor:'#f82020'}}>Стать волонтером</Button>
         </Toolbar>
-          <ModalReg open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"/>
+         <ModalReg open={open} />
+          <ModalVolunteer open={openVolunteer}/>
       </AppBar>
     </Box>
   );
