@@ -1,14 +1,10 @@
-import {Map, YMaps} from "react-yandex-maps";
+import Main from "./components/Main";
 
 function App() {
   return (
-      <YMaps>
-          <div>
-              My awesome application with maps!
-              <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
-          </div>
-      </YMaps>
+     <>
+        <Main/>
+     </>
   );
 }
-
 export default App;
