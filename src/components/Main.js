@@ -5,6 +5,7 @@ const Main = () => {
     return (
         <main style={{marginTop:25}}>
             <Container maxWidth="md">
+
                     {
                         arr.map((item) => {
                             return(<MainPost key={item}/>)

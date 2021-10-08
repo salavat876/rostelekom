@@ -38,7 +38,8 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Домой
           </Typography>
-          <Button onClick={handleOpen}  variant="contained" color="primary" style={{textTransform: "none"}}>Подписаться на рассылку</Button>
+          <Button onClick={handleOpen}  variant="contained" color="primary" style={{textTransform: "none",marginRight:10}}>Подписаться на рассылку</Button>
+            <Button variant="contained" style={{textTransform: "none", backgroundColor:'#f82020'}}>Стать волонтером</Button>
         </Toolbar>
           <Modal
               style={{border:'none'}}
