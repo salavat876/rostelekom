@@ -33,8 +33,11 @@ export default function NavBar() {
   const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" >
-        <Toolbar className={classes.toolbar}>
+      <AppBar  position="static" style={{backgroundColor:'#ffff'}} >
+        <Toolbar className={classes.toolbar} sx={{
+            minWidth:1200,
+            margin:'0 auto'
+        }}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Домой
           </Typography>
