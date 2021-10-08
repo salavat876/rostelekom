@@ -5,8 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
-import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Modal} from "@mui/material";
-import {Map, YMaps} from "react-yandex-maps";
+import {Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Modal, TextField} from "@mui/material";
+import {Map, Placemark, YMaps} from "react-yandex-maps";
+import {useState} from "react";
+import axios from "axios";
+import {API_KEY} from "../consts";
 
 const useStyles = makeStyles({
   toolbar: {
@@ -30,6 +33,29 @@ export default function NavBar() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [userInput,setUserInput] = useState('');
+    const [defaultCor, setDefaultCoor] = useState([55.751574, 37.573856]);
+
+    const handleUserInput = (e) => {
+        setUserInput(e.target.value)
+    }
+    async function fetchAdress () {
+        await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${API_KEY}&format=json&geocode=${userInput}`)
+            .then(res => {
+                console.log(res)
+                let response = res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
+                let stringCoords = response.split(' ');
+                let coords = [+stringCoords[0],+stringCoords[1]]
+                    setDefaultCoor(coords)
+                }
+            )
+            .catch(err => console.log(err))
+    }
+    const handleUserSearch = (e) => {
+        console.log(userInput)
+        setUserInput('')
+        fetchAdress()
+    }
   const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -61,7 +87,13 @@ export default function NavBar() {
                   <FormControl required style={{display:"flex"}}>
                       <FormLabel component="legend"> Выберите минимум одну категорию</FormLabel>
                       <FormGroup style={{display:"flex",alignItems:'center'}}>
-                          <div style={{display:'flex',justifyContent:'space-evenly'}}>
+                          <div
+                              style={
+                                  {
+                                      display:'flex',
+                                      justifyContent:'space-evenly'
+                                  }
+                              }>
                               <div style={{display:'flex',flexDirection:'column',marginBottom:15}}>
                                   <FormControlLabel control={<Checkbox />} label="Электричество" />
                                   <FormControlLabel  control={<Checkbox />} label="Водоснабжение"/>
@@ -71,12 +103,33 @@ export default function NavBar() {
                                   <FormControlLabel  control={<Checkbox />} label="ЧП и ЧС" />
                               </div>
                           </div>
+                          <div style={{display:'flex'}}>
+                              <TextField
+                                  label="Введите ваш адрес"
+                                  variant="outlined"
+                                  onChange={handleUserInput}
+                                  value={userInput} />
+                              <Button
+                                  variant="contained"
+                                  onClick={handleUserSearch}
+                                  color="primary"
+                              >Найти</Button>
+                          </div>
                           <YMaps>
-                              <div>
-                                  <Map width={500}  defaultState={{ center: [54.316353, 48.383674], zoom: 12 }} />
-                              </div>
+                              <Map
+                                  defaultState={{
+                                      center: defaultCor,
+                                      zoom: 5,
+                                  }}
+                              >
+                                  <Placemark geometry={defaultCor}/>
+                              </Map>
                           </YMaps>
-                          <Button style={{marginTop:15}} variant="contained" size="large">Подключить телеграм</Button>
+                          <Button
+                              style={{marginTop:15}}
+                              variant="contained"
+                              size="large"
+                          >Подключить телеграм</Button>
                       </FormGroup>
                   </FormControl>
               </Box>
