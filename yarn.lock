@@ -1508,7 +1508,7 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@mui/core@5.0.0-alpha.50":
+"@mui/core@5.0.0-alpha.50", "@mui/core@^5.0.0-alpha.50":
   version "5.0.0-alpha.50"
   resolved "https://registry.yarnpkg.com/@mui/core/-/core-5.0.0-alpha.50.tgz#055b7ccf8557f849e8e61a39a8e3943f8abad9b0"
   integrity sha512-szmmzbyAjEQku17IoEWs7t77n0Kr4zVnT5fREfMd+CnCA4YDifr68ccGJfWaeoGp5Zw/JmfKjQJXLY4GgT6i/g==

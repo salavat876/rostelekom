@@ -15,7 +15,7 @@ const MainPost = () => {
     const classes = useStyles();
     return (
         <Paper variant="outlined" style={{padding:20,borderRadius:12,marginBottom:15}}>
-            <Container className={classes.container} >
+            <Container className={classes.container} style={{display:'flex'}} >
                 <div>
                     Категория
                 </div>
