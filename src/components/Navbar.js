@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
-import {Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Modal, TextField} from "@mui/material";
+import {Alert, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Modal, TextField} from "@mui/material";
 import {Map, Placemark, YMaps} from "react-yandex-maps";
 import {useState} from "react";
 import axios from "axios";
@@ -35,6 +35,7 @@ export default function NavBar() {
     const handleClose = () => setOpen(false);
     const [userInput,setUserInput] = useState('');
     const [defaultCor, setDefaultCoor] = useState([55.751574, 37.573856]);
+    const [visibleAlert,setVisibleAlert] = useState(true)
 
     const handleUserInput = (e) => {
         setUserInput(e.target.value)
@@ -43,11 +44,16 @@ export default function NavBar() {
         await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${API_KEY}&format=json&geocode=${userInput}`)
             .then(res => {
                 console.log(res)
-                let response = res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
-                let stringCoords = response.split(' ');
-                let coords = [+stringCoords[0],+stringCoords[1]]
+                if (res.data.response.GeoObjectCollection.featureMember.length === 0){
+                    setVisibleAlert(false)
+                } else {
+                    let response = res.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos;
+                    let stringCoords = response.split(' ');
+                    let coords = [+stringCoords[1],+stringCoords[0]]
                     setDefaultCoor(coords)
+                    setVisibleAlert(true)
                 }
+            }
             )
             .catch(err => console.log(err))
     }
@@ -56,7 +62,7 @@ export default function NavBar() {
         setUserInput('')
         fetchAdress()
     }
-  const classes = useStyles();
+    const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar  position="static" style={{backgroundColor:'#ffff'}} >
@@ -103,23 +109,33 @@ export default function NavBar() {
                                   <FormControlLabel  control={<Checkbox />} label="ЧП и ЧС" />
                               </div>
                           </div>
-                          <div style={{display:'flex'}}>
-                              <TextField
-                                  label="Введите ваш адрес"
-                                  variant="outlined"
-                                  onChange={handleUserInput}
-                                  value={userInput} />
-                              <Button
-                                  variant="contained"
-                                  onClick={handleUserSearch}
-                                  color="primary"
-                              >Найти</Button>
+                          <div style={{display:'flex',width:'100%',flexDirection:'column',marginBottom:15}}>
+                              <div style={{display:'flex'}}>
+                                  <TextField
+                                      className="user-input"
+                                      label="Введите ваш адрес"
+                                      onChange={handleUserInput}
+                                      value={userInput}
+                                      style={{width:'100%'}}
+                                  />
+                                  <Button
+                                      style={{borderRadius: '0 5px 5px 0'}}
+                                      variant="contained"
+                                      onClick={handleUserSearch}
+                                      color="primary"
+                                  >Найти</Button>
+                              </div >
+                              <Alert
+                                  className={visibleAlert?'unvisible-alert':''}
+                                  style={{width: "95%",padding: '15px 2.5% 15px 2.5%'}}
+                                  severity="warning">Похоже, что вы ввели некорректный адрес </Alert>
                           </div>
                           <YMaps>
                               <Map
-                                  defaultState={{
+                                  width={"100%"}
+                                  state={{
                                       center: defaultCor,
-                                      zoom: 5,
+                                      zoom: 15,
                                   }}
                               >
                                   <Placemark geometry={defaultCor}/>
