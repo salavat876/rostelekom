@@ -1,0 +1,1 @@
+export const OPEN_MODAL_WINDOW = 'OPEN_MODAL_WINDOW'
