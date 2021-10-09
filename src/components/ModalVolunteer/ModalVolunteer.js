@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {Alert, FormControl, FormGroup, Modal, TextField} from "@mui/material";
+import {Alert, Checkbox, FormControl, FormControlLabel, FormGroup, Modal, TextField} from "@mui/material";
 import {Map, Placemark, YMaps} from "react-yandex-maps";
 import {useState} from "react";
 import axios from "axios";
@@ -87,14 +87,7 @@ function ModalVolunteer(props) {
                         variant="outlined"
                         style={{width:'100%',marginBottom:20}}
                     />
-                        <TextField
-                            required
-                            value={userPhone}
-                            onChange={handleUserPhoneInput}
-                            label="Ваш номер телефона"
-                            variant="outlined"
-                            style={{width:'100%'}}
-                        />
+                        <FormControlLabel sx={{alignSelf:'flex-start'}} control={<Checkbox />} label="Хочу помогать индивидуально" />
                         <div style={{display:'flex',width:'100%',flexDirection:'column',margin:'20px 0 20px 0'}}>
                             <div style={{display:'flex'}}>
                                 <TextField
