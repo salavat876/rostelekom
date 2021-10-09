@@ -5,9 +5,30 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useEffect, useState } from "react";
 import {Map, Placemark, TrafficControl, YMaps} from "react-yandex-maps";
 import * as React from "react";
+import {usePosition} from 'use-position'
+import axios from "axios";
+import $ from "jquery";
 const words = ['Отключение воды','Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской']
-
 const useDate = () => {
+    const watch = true;
+    const {
+        latitude,
+        longitude,
+        speed,
+        timestamp,
+        accuracy,
+        error,
+    } = usePosition(watch, { enableHighAccuracy : true });
+/*    useEffect(()=>{
+        console.log(latitude,longitude,error)
+        if (latitude){
+            $.post( "http://109.197.196.107:8000/service/get_events/" ,{
+                s:latitude,
+                w:longitude
+            });
+        }
+    },[latitude]);*/
+
     const locale = 'ru';
     const [today, setDate] = useState(new Date()); 
   

@@ -68,7 +68,7 @@ export default function NavBar() {
                 </Typography>
                 <Typography
                             variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, md: 0} }}>
-                    <Link className={classes.titles} to='/news'>Новости</Link>
+                    <Link className={classes.titles} to='/news'>События</Link>
                 </Typography>
             </Box>
             <Box>
