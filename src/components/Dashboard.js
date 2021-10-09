@@ -3,31 +3,13 @@ import {Link}from 'react-router-dom'
 import { Box } from "@mui/system";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useEffect, useState } from "react";
-import {Map, Placemark, TrafficControl, YMaps} from "react-yandex-maps";
+import {GeolocationControl, Map, TrafficControl, YMaps} from "react-yandex-maps";
 import * as React from "react";
 import {usePosition} from 'use-position'
 import axios from "axios";
 import $ from "jquery";
 const words = ['Отключение воды','Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской']
 const useDate = () => {
-    const watch = true;
-    const {
-        latitude,
-        longitude,
-        speed,
-        timestamp,
-        accuracy,
-        error,
-    } = usePosition(watch, { enableHighAccuracy : true });
-/*    useEffect(()=>{
-        console.log(latitude,longitude,error)
-        if (latitude){
-            $.post( "http://109.197.196.107:8000/service/get_events/" ,{
-                s:latitude,
-                w:longitude
-            });
-        }
-    },[latitude]);*/
 
     const locale = 'ru';
     const [today, setDate] = useState(new Date()); 
@@ -43,9 +25,7 @@ const useDate = () => {
   
     const day = today.toLocaleDateString(locale, { weekday: 'long' });
     const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, { month: 'long' })}\n\n`;
-  
     const hour = today.getHours();
-  
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: false, minute: 'numeric' });
   
     return {
@@ -55,10 +35,15 @@ const useDate = () => {
   };
 
 const arr = [1,2,3,4,5,6,7]
-
 const arr2 = [1,2,3,4,5,6,7]
 
 const Dashboard = () => {
+    const watch = true;
+    const {
+        latitude,
+        longitude,
+        error,
+    } = usePosition(watch, { enableHighAccuracy : true });
     const { date, time, wish } = useDate();
     return (
             <Container maxWidth="lg">
@@ -90,7 +75,11 @@ const Dashboard = () => {
                                     fontWeight:'bold'
                                 }
                             }>На данный момент всё хорошо</Typography>
-                            <Typography variant="h5" component="h5" sx={{marginBottom: 1}}>Что происходит прямо сейчас:</Typography>
+                            <Typography
+                                variant="h5"
+                                component="h5"
+                                sx={{marginBottom: 1}}
+                            >Что происходит прямо сейчас:</Typography>
                             {
                                 arr.slice(0, 5).map((item) => {
                                     return(
@@ -130,11 +119,13 @@ const Dashboard = () => {
                       <Map
                           width={"100%"}
                           state={{
-                              center: [54.314192, 48.403132],
+                              center: [latitude, longitude],
                               zoom: 15,
                           }}
+
                       >
-                          <TrafficControl state={{trafficShown: true}} options={{float:'right'}}></TrafficControl>
+                          <GeolocationControl/>
+                          <TrafficControl state={{trafficShown: true}} options={{float:'right'}}/>
                       </Map>
                   </YMaps>
                 </Grid>

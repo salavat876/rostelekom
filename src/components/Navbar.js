@@ -61,9 +61,15 @@ export default function NavBar() {
         }}>
             <Box sx={{display:'flex'}}>
                 <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1, marginBottom:{xs: 1, md: 0},marginRight:2 }}>
+                    variant="h6"
+                    component="div"
+                    sx={
+                        {
+                            flexGrow: 1,
+                            marginBottom:{xs: 1, md: 0},
+                            marginRight:2
+                        }
+                    }>
                     <Link className={classes.titles} to='/'>Главная</Link>
                 </Typography>
                 <Typography
@@ -80,7 +86,11 @@ export default function NavBar() {
                 <Button onClick={handleOpenVolunteer}
                         variant="contained"
                         sx={
-                            {width:{xs:"100%", md:"auto"},textTransform: "none", backgroundColor:'#f82020', marginBottom:{xs: 2,md: 0}}
+                            {
+                                width:{xs:"100%", md:"auto"},
+                                textTransform: "none",
+                                backgroundColor:'#f82020', marginBottom:{xs: 2,md: 0}
+                            }
                         }>
                     Стать волонтером
                 </Button>
