@@ -24,14 +24,10 @@ const useStyles = makeStyles({
 });
 const style = {
     position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 600,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    
 };
 export default function NavBar() {
     const classes = useStyles();
@@ -48,15 +44,22 @@ export default function NavBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar  position="static" style={{backgroundColor:'#ffff'}} >
-        <Toolbar className={classes.toolbar} sx={{
-            minWidth:1200,
-            margin:'0 auto'
+        <Toolbar className={classes.toolbar}  sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: {
+              xs: "column",
+              sm: "row"
+            },
+            width: "80%!important",
+            left: "50%",
+            transform: "translateX(-50%)"
         }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0} }}>
             Домой
           </Typography>
-          <Button onClick={handleOpenModal}  variant="contained" color="primary" style={{textTransform: "none",marginRight:10}}>Подписаться на рассылку</Button>
-            <Button onClick={handleOpenVolunteer} variant="contained" style={{textTransform: "none", backgroundColor:'#f82020'}}>Стать волонтером</Button>
+          <Button onClick={handleOpenModal}  variant="contained" color="primary" sx={{width:{xs:"100%", sm:"auto"},textTransform: "none",marginRight:{xs: 0,sm: 2}, marginBottom:{xs: 1,sm: 0}}}>Подписаться на рассылку</Button>
+            <Button onClick={handleOpenVolunteer} variant="contained" sx={{width:{xs:"100%", sm:"auto"},textTransform: "none", backgroundColor:'#f82020', marginBottom:{xs: 2,sm: 0}}}>Стать волонтером</Button>
         </Toolbar>
          <ModalReg open={open} />
           <ModalVolunteer open={openVolunteer}/>
