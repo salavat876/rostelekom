@@ -124,7 +124,7 @@ function ModalReg(props) {
                     </Map>
                 </YMaps>
                 <Box sx={{marginTop: 2}}>
-                <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UL_public_alerts_bot" />
+                    <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UL_public_alerts_bot" />
                 </Box>
             </FormGroup>
         </FormControl>
