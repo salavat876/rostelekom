@@ -11,17 +11,29 @@ import {useDispatch} from "react-redux";
 import {closeWindowModal} from "../../redux/actions/modalWindowAction";
 import TelegramLoginButton from 'react-telegram-login';
 import $ from 'jquery';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    width: {
+        xs: "93%",
+        sm: 600
+    },
+    height: {
+        xs: "93%",
+        sm: "auto"
+    },
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: {
+        xs: "7%",
+        sm: 4
+    },
+    borderRadius: {xs: 0, sm:8}
 };
 
 function ModalReg(props) {
@@ -62,8 +74,12 @@ function ModalReg(props) {
             $.post( "http://109.197.196.107:8000/service/new_user_registrations/" ,{
                 id:response.id,
                 userName:response.username,
-                checkBoxes:valueCheckBoxes,
-                coords: defaultCor``
+                gas: valueCheckBoxes.gas,
+                el: valueCheckBoxes.el,
+                water: valueCheckBoxes.water,
+                CP: valueCheckBoxes.CP,
+                coord1: defaultCor[0],
+                coord2: defaultCor[1]
             });
         }
     };
@@ -76,7 +92,8 @@ function ModalReg(props) {
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
 >
-    <Box sx={style} style={{border:'none',borderRadius: 28}}>
+    <Box sx={style} style={{border:'none', }} >
+        <CloseIcon sx={{position: "absolute", right: "35px", cursor: "pointer"}} onClick={()=>dispatch(closeWindowModal())}/>
         <Typography id="modal-modal-title" variant="h4" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
             Подпишитесь на рассылку
         </Typography>
@@ -106,7 +123,7 @@ function ModalReg(props) {
                             setValueCheckBoxes(prevState =>{
                                 return {
                                     ...prevState,
-                                    gas:e.target.checked
+                                    water:e.target.checked
 
                                 }})
                             console.log(valueCheckBoxes)
