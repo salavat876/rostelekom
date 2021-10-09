@@ -9,6 +9,7 @@ import axios from "axios";
 import {API_KEY} from "../../consts";
 import {useDispatch} from "react-redux";
 import {closeWindowModal} from "../../redux/actions/modalWindowAction";
+import TelegramLoginButton from 'react-telegram-login';
 
 const style = {
     position: 'absolute',
@@ -53,6 +54,9 @@ function ModalReg(props) {
         fetchAdress()
         setUserInput('')
     }
+    const handleTelegramResponse = response => {
+        console.log(response);
+    };
   return (
     <Modal
     style={{border:'none'}}
@@ -119,11 +123,7 @@ function ModalReg(props) {
                         <Placemark geometry={defaultCor}/>
                     </Map>
                 </YMaps>
-                <Button
-                    style={{marginTop:15}}
-                    variant="contained"
-                    size="large"
-                >Подключить телеграм</Button>
+                <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" />
             </FormGroup>
         </FormControl>
     </Box>
