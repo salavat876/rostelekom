@@ -26,7 +26,7 @@ function ModalVolunteer(props) {
     const [userInput,setUserInput] = useState('');
     const [userPhone,setUserPhone] = useState('');
     const [userAdress,setUserAdress] = useState('')
-    const [defaultCor, setDefaultCoor] = useState([55.751574, 37.573856]);
+    const [defaultCor, setDefaultCoor] = useState([54.314192, 48.403132]);
     const [visibleAlert,setVisibleAlert] = useState(true)
     const dispatch = useDispatch()
 
@@ -64,6 +64,7 @@ function ModalVolunteer(props) {
     return (
         <Modal
             style={{border:'none',padding:15}}
+            sx={{backdropFilter: "blur(5px)",backgroundColor:'rgb(0 60 245 / 30%)'}}
             open={props.open}
             onClose={()=>dispatch( closeVolunteer())}
             aria-labelledby="modal-modal-title"

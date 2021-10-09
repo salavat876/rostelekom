@@ -26,7 +26,7 @@ const style = {
 
 function ModalReg(props) {
     const [userInput,setUserInput] = useState('');
-    const [defaultCor, setDefaultCoor] = useState([55.751574, 37.573856]);
+    const [defaultCor, setDefaultCoor] = useState([54.314192, 48.403132]);
     const [visibleAlert,setVisibleAlert] = useState(true);
     const [valueCheckBoxes,setValueCheckBoxes] = useState({gas:false,water:false,CP:false,el:false})
     const dispatch = useDispatch()
@@ -62,14 +62,14 @@ function ModalReg(props) {
             $.post( "http://109.197.196.107:8000/service/new_user_registrations/" ,{
                 id:response.id,
                 userName:response.username,
-                valueCheckBoxes,
-                coords: defaultCor
+                checkBoxes:valueCheckBoxes,
+                coords: defaultCor``
             });
         }
-
     };
   return (
     <Modal
+        sx={{backdropFilter: "blur(5px)",backgroundColor:'rgb(28 74 238 / 25%)'}}
     style={{border:'none'}}
     open={props.open}
     onClose={()=>dispatch(closeWindowModal())}

@@ -40,7 +40,8 @@ const Dashboard = () => {
     const { date, time, wish } = useDate();
     return (
             <Container maxWidth="lg">
-                <Grid container style={{backgroundColor:"white", borderRadius:20,padding: 19 }} justifyContent="space-between">
+                <Grid container
+                      style={{backgroundColor:"white", borderRadius:20,padding: 19 }} justifyContent="space-between">
                     <Grid item xs={12} md={8} style={{padding:25}}>
                         <Box
                             sx={
@@ -82,7 +83,7 @@ const Dashboard = () => {
                     </Grid>
                     <Grid item xs={12} md={4} borderLeft={{xs: "none", md:"1px solid black"}} borderTop={{xs: "1px solid black", md: "none"}} sx={{display: "flex", flexDirection: "column", textAlign: "center"}} style={{padding:25}}>
                             <Box sx={{marginBottom: 2}}>
-                                <Typography  variant="h6" component="h6" align="center">
+                                <Typography sx={{fontSize: 1.2,fontWeight:'bold'}}  variant="h6" component="h6" align="center">
                                     Запланированные мероприятия
                                 </Typography>
                             </Box>
