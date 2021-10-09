@@ -1,13 +1,17 @@
 import Dashboard from "./components/Dashboard";
 import Main from "./components/Main";
 import NavBar from "./components/Navbar";
+import {Route} from "react-router-dom";
 
 function App() {
   return (
      <>
          <NavBar/>
-         <Dashboard></Dashboard>
-        <Main/>
+         <main style={{marginTop:'8em'}}>
+             <Route exact path='/news' component={Main} />
+             <Route exact path='/' component={Dashboard}/>
+         </main>
+
      </>
   );
 }
