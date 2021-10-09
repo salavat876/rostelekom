@@ -7,5 +7,5 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const state = loadState();
 export const store = createStore(rootReducer,state,composeEnhancers(applyMiddleware(thunk)));
 store.subscribe(()=>{
-    saveState()
+    saveState(store.getState())
 });
