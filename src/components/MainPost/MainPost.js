@@ -13,8 +13,9 @@ const useStyles = makeStyles({
 const MainPost = () => {
     const classes = useStyles();
     return (
-        <Card sx={{ minWidth: 275, marginBottom: 5, padding: 2}}>
+        <Card sx={{ minWidth: 275, marginBottom: 5, padding: 2,borderRadius:5}}>
             <CardHeader
+                sx={{fontWeight:700}}
                 title="Shrimp and Chorizo Paella"
                 subheader="September 14, 2016"
             />

@@ -5,6 +5,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useEffect, useState } from "react";
 import {Map, Placemark, TrafficControl, YMaps} from "react-yandex-maps";
 import * as React from "react";
+const words = ['Отключение воды','Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской']
 
 const useDate = () => {
     const locale = 'ru';
@@ -83,13 +84,13 @@ const Dashboard = () => {
                     </Grid>
                     <Grid item xs={12} md={4} borderLeft={{xs: "none", md:"1px solid black"}} borderTop={{xs: "1px solid black", md: "none"}} sx={{display: "flex", flexDirection: "column", textAlign: "center"}} style={{padding:25}}>
                             <Box sx={{marginBottom: 2}}>
-                                <Typography sx={{fontSize: 1.2,fontWeight:'bold'}}  variant="h6" component="h6" align="center">
+                                <Typography sx={{fontSize:' 1.2em',fontWeight:'bold'}}  variant="h6" component="h6" align="center">
                                     Запланированные мероприятия
                                 </Typography>
                             </Box>
                             {
-                                arr2.slice(0, 7).map((item) => {
-                                    return(<Typography variant="body" key={item} sx={{marginBottom: 2}}>Отключение электричества с 14 до 16 </Typography>)
+                                arr2.slice(0, 4).map((item,index) => {
+                                    return(<Typography variant="body2" key={item} sx={{marginBottom: 2,fontSize:'1.09em'}}>{words[index]} с 14 до 16 </Typography>)
                                 })
                             }
                     </Grid>
