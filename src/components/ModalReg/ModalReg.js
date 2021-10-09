@@ -10,6 +10,7 @@ import {API_KEY} from "../../consts";
 import {useDispatch} from "react-redux";
 import {closeWindowModal} from "../../redux/actions/modalWindowAction";
 import TelegramLoginButton from 'react-telegram-login';
+import $ from 'jquery';
 
 const style = {
     position: 'absolute',
@@ -58,15 +59,12 @@ function ModalReg(props) {
     const handleTelegramResponse = (response) => {
         console.log(response);
         if(response){
-                axios.post(`http://109.197.196.107:8000/service/new_user_registrations/`,{
-                    id:response.id,
-                    userName:response.username,
-                    valueCheckBoxes
-                }, {
-                        headers: {'Access-Control-Allow-Origin': '*'}
-                    }
-            ).then(res=> console.log(res))
-                    .catch(err=> console.log(err))
+            $.post( "http://109.197.196.107:8000/service/new_user_registrations/" ,{
+                id:response.id,
+                userName:response.username,
+                valueCheckBoxes,
+                coords: defaultCor
+            });
         }
 
     };
