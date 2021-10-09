@@ -123,7 +123,9 @@ function ModalReg(props) {
                         <Placemark geometry={defaultCor}/>
                     </Map>
                 </YMaps>
-                <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" />
+                <Box sx={{marginTop: 2}}>
+                <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UL_public_alerts_bot" />
+                </Box>
             </FormGroup>
         </FormControl>
     </Box>
