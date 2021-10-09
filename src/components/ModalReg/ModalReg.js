@@ -31,7 +31,7 @@ function ModalReg(props) {
     const handleUserInput = (e) => {
         setUserInput(e.target.value)
     }
-    async function fetchAdress () {
+   async function fetchAdress () {
         await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${API_KEY}&format=json&geocode=${userInput}`)
             .then(res => {
                 console.log(res)
@@ -50,8 +50,8 @@ function ModalReg(props) {
     }
     const handleUserSearch = (e) => {
         console.log(userInput)
-        setUserInput('')
         fetchAdress()
+        setUserInput('')
     }
   return (
     <Modal
