@@ -44,7 +44,7 @@ export default function NavBar() {
     }
   return (
     <Box sx={{ flexGrow: 1,position:'sticky' }}>
-      <AppBar   style={{backgroundColor:'#ffff'}} >
+      <AppBar style={{backgroundColor:'#ffff'}} >
         <Toolbar className={classes.toolbar}  sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -52,7 +52,10 @@ export default function NavBar() {
               xs: "column",
               md: "row"
             },
-            width: "80%!important",
+            maxWidth: {
+              xs: "90%",
+              lg: "1150px"
+            },
             left: "50%",
             transform: "translateX(-50%)"
         }}>
