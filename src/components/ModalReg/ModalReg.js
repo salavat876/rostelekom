@@ -26,7 +26,8 @@ const style = {
 function ModalReg(props) {
     const [userInput,setUserInput] = useState('');
     const [defaultCor, setDefaultCoor] = useState([55.751574, 37.573856]);
-    const [visibleAlert,setVisibleAlert] = useState(true)
+    const [visibleAlert,setVisibleAlert] = useState(true);
+    const [valueCheckBoxes,setValueCheckBoxes] = useState({gas:false,water:false,CP:false,el:false})
     const dispatch = useDispatch()
 
     const handleUserInput = (e) => {
@@ -54,8 +55,20 @@ function ModalReg(props) {
         fetchAdress()
         setUserInput('')
     }
-    const handleTelegramResponse = response => {
+    const handleTelegramResponse = (response) => {
         console.log(response);
+        if(response){
+                axios.post(`http://109.197.196.107:8000/service/new_user_registrations/`,{
+                    id:response.id,
+                    userName:response.username,
+                    valueCheckBoxes
+                }, {
+                        headers: {'Access-Control-Allow-Origin': '*'}
+                    }
+            ).then(res=> console.log(res))
+                    .catch(err=> console.log(err))
+        }
+
     };
   return (
     <Modal
@@ -83,12 +96,42 @@ function ModalReg(props) {
                         }
                     }>
                     <div style={{display:'flex',flexDirection:'column',marginBottom:15}}>
-                        <FormControlLabel control={<Checkbox />} label="Электричество" />
-                        <FormControlLabel  control={<Checkbox />} label="Водоснабжение"/>
+                        <FormControlLabel onChange={(e)=> {
+                            setValueCheckBoxes(prevState => {
+                                return {
+                                        ...prevState,
+                                        el:e.target.checked
+                                }
+                            })
+                        }} control={<Checkbox />} label="Электричество" />
+                        <FormControlLabel onChange={(e)=> {
+                            setValueCheckBoxes(prevState =>{
+                                return {
+                                    ...prevState,
+                                    gas:e.target.checked
+
+                                }})
+                            console.log(valueCheckBoxes)
+                        }} control={<Checkbox />} label="Водоснабжение"/>
                     </div>
                     <div style={{display:'flex',flexDirection:'column'}}>
-                        <FormControlLabel  control={<Checkbox />} label="Газ" />
-                        <FormControlLabel  control={<Checkbox />} label="ЧП и ЧС" />
+                        <FormControlLabel onChange={(e)=> {
+                            setValueCheckBoxes(prevState =>{
+                                return {
+                                    ...prevState,
+                                    gas:e.target.checked
+
+                            }})
+                            console.log(valueCheckBoxes)
+                        }}  control={<Checkbox />} label="Газ" />
+                        <FormControlLabel onChange={(e)=> {
+                            setValueCheckBoxes(prevState =>{
+                                return {
+                                        ...prevState,
+                                        CP:e.target.checked
+                                }})
+                            console.log(valueCheckBoxes)
+                        }}  control={<Checkbox />} label="ЧП и ЧС" />
                     </div>
                 </div>
                 <div style={{display:'flex',width:'100%',flexDirection:'column',marginBottom:15}}>
