@@ -9,6 +9,8 @@ import axios from "axios";
 import {useDispatch} from "react-redux";
 import {closeVolunteer} from "../../redux/actions/modalWindowAction";
 import {API_KEY} from "../../consts";
+import TelegramLoginButton from "react-telegram-login";
+import $ from "jquery";
 
 const style = {
     bgcolor: 'background.paper',
@@ -32,6 +34,14 @@ function ModalVolunteer(props) {
     const addressSearch = () => {
         fetchAdress()
     }
+    const handleTelegramResponse = (response) => {
+        console.log(response);
+        if(response){
+            $.post( "http://109.197.196.107:8000/service/new_volonter_registrations/" ,{
+                id:response.id,
+            });
+        }
+    };
     async function fetchAdress () {
         await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${API_KEY}&format=json&geocode=${userAdress}`)
             .then(res => {
@@ -106,17 +116,7 @@ function ModalVolunteer(props) {
                                 <Placemark geometry={defaultCor}/>
                             </Map>
                         </YMaps>
-                        <Button
-                            variant="contained"
-                            size="large"
-                            style={
-                                {
-                                    color:'#ffff',
-                                    backgroundColor:'#1043c5',
-                                    width:'100%',
-                                    marginTop:20
-                                }
-                            }>Стать волонтером</Button>
+                        <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UL_volonter_bot" />
                     </FormGroup>
                 </FormControl>
             </Box>

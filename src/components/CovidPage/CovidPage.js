@@ -4,7 +4,6 @@ import {Box} from "@mui/system";
 const style = {
     width:'92%',
    backgroundColor:'#ffff',
-    border: '2px solid #000',
     padding:20,
     borderRadius:'12px',
     boxShadow: 24,
@@ -14,9 +13,7 @@ function CovidPage(props) {
     return (
         <Container maxWidth="lg">
             <Box style={style} >
-                <Typography sx={{textAlign:'left'}} variant="h4">Коронавирус – симптомы,профилактика
-                </Typography>
-                <Typography sx={{marginTop:2,paddingBottom:4,borderBottom:'1px solid #e2e6ec',color:'#18214d'}} variant="h5">
+                <Typography sx={{marginTop:2,paddingBottom:4,borderBottom:'1px solid #e2e6ec',color:'#18214d',fontSize:"56px"}} variant="h5">
                     Профилактика коронавируса:
                 </Typography>
                 <div className="advices">
@@ -70,7 +67,35 @@ function CovidPage(props) {
                     fontSize: '56px',
                     lineHeight: '62px',
                     letterSpacing: '-2.4px',
-                    color: '#18214d',}}>Предупрежден – значит вооружен:</Typography>
+                    color: '#18214d',}}>
+                    Предупрежден – значит вооружен:
+                </Typography>
+                <div className="advise-footer" >
+                    <p className="advice-footer_subtitle">Достоверная информация с новостями о коронавирусе размещена на сайтах Стопкоронавирус.РФ, Минздрава России, Роспотребнадзора и Всемирной организации здравоохранения.
+                        Не доверяйте непроверенным источникам и не поддавайтесь панике.
+                    </p>
+                    <div className="inform-blocks">
+                        <div className="inform-block">
+                            <h3 className="inform-block-header">
+                                <a href="tel:8 800 2000 112">8 800 2000 112</a>
+                            </h3>
+                            <p className="inform-block_content">Горячая линия Стопкоронавирус</p>
+                        </div>
+                        <div className="inform-block">
+                            <h3 className="inform-block-header">
+                                <a href="tel:8 800 2000 112">8 800 200 0 200</a>
+                            </h3>
+                            <p className="inform-block_content">Горячая линия Стопкоронавирус</p>
+                        </div>
+                        <div className="inform-block">
+                            <h3 className="inform-block-header">
+                                <a href="https://minzdrav.gov.ru/hotline">minzdrav.gov.ru/hotline</a>
+                            </h3>
+                            <p className="inform-block_content">Горячая линия Стопкоронавирус</p>
+                        </div>
+                    </div>
+                </div>
+
             </Box>
 
         </Container>

@@ -58,3 +58,52 @@ code {
     letter-spacing: -.3px;
     color: #3e4462;
 }
+.advice-footer_subtitle{
+    display: block;
+    margin: 30px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -.3px;
+    color: #3e4462;
+}
+.inform-blocks{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.inform-block{
+    display: block;
+    width: calc(50% - 15px);
+    margin-bottom: 30px;
+    padding: 32px;
+    border: 2px solid #dfe4ea;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-right: 14px;
+}
+.inform-block-header{
+    display: block;
+    margin-bottom: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: .1px;
+    color: #343a40;
+}
+.inform-block-header  a{
+    text-decoration: none;
+    color: inherit;
+}
+inform-block_content{
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: .1px;
+    color: #666c72;
+}
