@@ -94,11 +94,11 @@ function ModalReg(props) {
 >
     <Box sx={style} style={{border:'none', }} >
         <CloseIcon sx={{position: "absolute", right: "35px", cursor: "pointer"}} onClick={()=>dispatch(closeWindowModal())}/>
-        <Typography id="modal-modal-title" variant="h4" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
+        <Typography id="modal-modal-title" variant="h4" component="h2" sx={{marginBottom:2,fontWeight:'bold',textAlign:"center"}}>
             Подпишитесь на рассылку
         </Typography>
-        <Typography id="modal-modal-title" variant="h6" component="p" style={{marginBottom:15,textAlign:"center"}}>
-            Выберите категории на которые хотите получать уведомления
+        <Typography id="modal-modal-title" variant="h6" component="p" sx={{marginBottom:2,textAlign:"center", fontSize: {xs: "1rem", sm: "1.25rem"}}}>
+            Подписываясь на рассылку, вы получаете доступ к своевременным уведомлениям о происшествиях и также сможете получить помощь волонтёров.
         </Typography>
         <FormControl required style={{display:"flex"}}>
             <FormLabel component="legend"> Выберите минимум одну категорию</FormLabel>
