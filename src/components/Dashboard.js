@@ -55,7 +55,7 @@ const Dashboard = () => {
     return (
             <Container maxWidth="lg">
                 <img style={{
-                    top: '75px',
+                    top: '80px',
                     position: 'absolute',
                     width: '60%',
                     borderRadius: '6px'
