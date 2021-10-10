@@ -11,11 +11,7 @@ import {closeVolunteer} from "../../redux/actions/modalWindowAction";
 import {API_KEY} from "../../consts";
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 600,
+    width:'92%',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -24,17 +20,12 @@ const style = {
 
 function ModalVolunteer(props) {
     const [userInput,setUserInput] = useState('');
-    const [userPhone,setUserPhone] = useState('');
-    const [userAdress,setUserAdress] = useState('')
+       const [userAdress,setUserAdress] = useState('')
     const [defaultCor, setDefaultCoor] = useState([54.314192, 48.403132]);
     const [visibleAlert,setVisibleAlert] = useState(true)
-    const dispatch = useDispatch()
 
     const handleUserInput = (e) => {
         setUserInput(e.target.value)
-    }
-    const handleUserPhoneInput = (e) => {
-        setUserPhone(e.target.value)
     }
     const changeUserAddress = (e) => {
         setUserAdress(e.target.value)
@@ -42,9 +33,6 @@ function ModalVolunteer(props) {
     const addressSearch = () => {
         fetchAdress()
     }
-/*    const hanldeSubmitVolunteer = () => {
-
-    }*/
     async function fetchAdress () {
         await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${API_KEY}&format=json&geocode=${userAdress}`)
             .then(res => {
@@ -62,10 +50,15 @@ function ModalVolunteer(props) {
             .catch(err => console.log(err))
     }
     return (
-        <Container>
+        <Container maxWidth="lg">
             <Box sx={style} style={{border:'none',borderRadius: 28}}>
-                <Typography variant="h4" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
+                <Typography variant="h3" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
                     Хотите стать волонтером?
+                </Typography>
+                <Typography variant="h5" sx={{textAlign:'center',fontWeight:'bold'}}>Станьте волонтером,
+                    чтобы помогать другим, находить новых друзей,
+                    путешествовать, участвовать в масштабных событиях,
+                    получать уникальный опыт, а также пользоваться привилегиями за волонтерскую деятельность
                 </Typography>
                 <Typography  variant="h6" component="p" style={{marginBottom:15,textAlign:"center"}}>
                     Заполните форму для регистрации и вам придет уведомление
