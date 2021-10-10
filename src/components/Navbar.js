@@ -74,12 +74,8 @@ export default function NavBar() {
                     <Link className={classes.titles} to='/news'>События</Link>
                 </Typography>
                 <Typography
-                    variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0},marginRight:2 }}>
-                    <Link className={classes.titles} to='/volunteer'>Я волонтер</Link>
-                </Typography>
-                <Typography
                     variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0} }}>
-                    <Link className={classes.titles} to='/covid-19'>У меня ковид</Link>
+                    <Link className={classes.titles} to='/volunteer'>Я волонтер</Link>
                 </Typography>
             </Box>
             <Box>
