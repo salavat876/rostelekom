@@ -65,21 +65,21 @@ export default function NavBar() {
                         {
                             flexGrow: 1,
                             marginBottom:{xs: 1, sm: 0},
-                            marginRight:2
+                            marginRight:2,
                         }
                     }>
                     <Link className={classes.titles} to='/'>Главная</Link>
                 </Typography>
                 <Typography
-                            variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0}, marginRight:2 }}>
+                            variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0}, marginRight:2, }}>
                     <Link className={classes.titles} to='/news'>События</Link>
                 </Typography>
                 <Typography
-                    variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0}, marginRight: 2 }}>
+                    variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, sm: 0}, marginRight: 2, }}>
                     <Link className={classes.titles} to='/volunteer'>Я волонтер</Link>
                 </Typography>
                 <Typography
-                    variant="h6" component="div" sx={{ flexGrow: 1,display:{xs:'none',sm:'block'}}}>
+                    variant="h6" component="div" sx={{ flexGrow: 1,display:{xs:'none',sm:'block'}, }}>
                     <Link className={classes.titles} to='/covid-19'><img style={{  height: 21,width: 24}} alt="covid-19" src={covidImg}/>Covid-19 </Link>
                 </Typography>
             </Box>

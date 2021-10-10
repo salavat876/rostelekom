@@ -14,8 +14,14 @@ import $ from "jquery";
 
 const style = {
     bgcolor: 'background.paper',
-    p: 6,
-    px:20,
+    p: {
+        xs: 1,
+        sm: 6
+    },
+    px:{
+        xs: 1,
+        sm: 20
+    },
     borderRadius: 7
 };
 
@@ -61,15 +67,15 @@ function ModalVolunteer(props) {
     return (
         <Container maxWidth="lg">
             <Box sx={style}>
-                <Typography variant="h3" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
+                <Typography variant="h3" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}} sx={{fontSize:{xs: "1.75em", sm:"3em"}}}>
                     Хотите стать волонтером?
                 </Typography>
-                <Typography variant="h5" sx={{textAlign:'center',mb:2}}>Станьте волонтером,
+                <Typography variant="h5" sx={{textAlign:'center',mb:2,fontSize:{xs: "1em", sm:"1.5em"}}}>Станьте волонтером,
                     чтобы помогать другим, находить новых друзей,
                     путешествовать, участвовать в масштабных событиях,
                     получать уникальный опыт, а также пользоваться привилегиями за волонтерскую деятельность
                 </Typography>
-                <Typography  variant="h6" component="p" style={{marginBottom:15,textAlign:"center"}}>
+                <Typography  variant="h6" component="p" sx={{marginBottom:2,textAlign:"center",fontSize:{xs: "1em", sm:"1.25em"}}}>
                     Заполните форму для регистрации и вам придет уведомление
                 </Typography>
                 <FormControl required style={{display:"flex"}}>
@@ -80,10 +86,10 @@ function ModalVolunteer(props) {
                             onChange={handleUserInput}
                             label="ФИО"
                             variant="outlined"
-                            style={{width:'100%',marginBottom:20}}
+                            style={{width:'100%',marginBottom:10}}
                         />
                         <FormControlLabel sx={{alignSelf:'flex-start'}} control={<Checkbox />} label="Хочу помогать индивидуально" />
-                        <div style={{display:'flex',width:'100%',flexDirection:'column',margin:'20px 0 20px 0'}}>
+                        <div style={{display:'flex',width:'100%',flexDirection:'column',margin:'10px 0 10px 0'}}>
                             <div style={{display:'flex'}}>
                                 <TextField
                                     required
@@ -105,7 +111,7 @@ function ModalVolunteer(props) {
                                 style={{width: "95%",padding: '15px 2.5% 15px 2.5%'}}
                                 severity="warning">Похоже, что вы ввели некорректный адрес </Alert>
                         </div>
-                        <YMaps>
+                        <YMaps >
                             <Map
                                 width={"100%"}
                                 state={{
@@ -116,7 +122,9 @@ function ModalVolunteer(props) {
                                 <Placemark geometry={defaultCor}/>
                             </Map>
                         </YMaps>
+                        <Box sx={{mt: 2}}>
                         <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="UL_volonter_bot" />
+                        </Box>
                     </FormGroup>
                 </FormControl>
             </Box>
