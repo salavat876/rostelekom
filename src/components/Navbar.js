@@ -39,9 +39,6 @@ export default function NavBar() {
     const handleOpenModal = () => {
         dispatch(modalWindowAction())
     }
-    const handleOpenVolunteer = () => {
-        dispatch(openModalVolunteer())
-    }
   return (
     <Box sx={{ flexGrow: 1,position:'sticky' }}>
       <AppBar style={{backgroundColor:'#ffff'}} >
@@ -76,6 +73,10 @@ export default function NavBar() {
                             variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, md: 0} }}>
                     <Link className={classes.titles} to='/news'>События</Link>
                 </Typography>
+                <Typography
+                    variant="h6" component="div" sx={{ flexGrow: 1, marginBottom:{xs: 1, md: 0} }}>
+                    <Link className={classes.titles} to='/volunteer'>Я волонтер</Link>
+                </Typography>
             </Box>
             <Box>
                 <Button onClick={handleOpenModal}
@@ -83,22 +84,10 @@ export default function NavBar() {
                         sx={{width:{xs:"100%", md:"auto"},textTransform: "none",marginRight:{xs: 0,md: 2}, marginBottom:{xs: 1,md: 0}}}>
                     Подписаться на рассылку
                 </Button>
-                <Button onClick={handleOpenVolunteer}
-                        variant="contained"
-                        sx={
-                            {
-                                width:{xs:"100%", md:"auto"},
-                                textTransform: "none",
-                                backgroundColor:'#f82020', marginBottom:{xs: 2,md: 0}
-                            }
-                        }>
-                    Стать волонтером
-                </Button>
             </Box>
 
         </Toolbar>
          <ModalReg open={open} />
-          <ModalVolunteer open={openVolunteer}/>
       </AppBar>
     </Box>
   );

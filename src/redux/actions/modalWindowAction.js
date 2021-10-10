@@ -10,13 +10,3 @@ export const closeWindowModal = () => {
         type:CLOSE_MODAL_WINDOW
     }
 }
-export const openModalVolunteer = () => {
-    return {
-        type:'OPEN_VOLUNTEER'
-    }
-}
-export const closeVolunteer = () => {
-    return{
-        type:'CLOSE_VOLUNTEER'
-    }
-}

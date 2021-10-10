@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {Alert, Checkbox, FormControl, FormControlLabel, FormGroup, Modal, TextField} from "@mui/material";
+import {Alert, Checkbox, Container, FormControl, FormControlLabel, FormGroup, Modal, TextField} from "@mui/material";
 import {Map, Placemark, YMaps} from "react-yandex-maps";
 import {useState} from "react";
 import axios from "axios";
@@ -62,14 +62,7 @@ function ModalVolunteer(props) {
             .catch(err => console.log(err))
     }
     return (
-        <Modal
-            style={{border:'none',padding:15}}
-            sx={{backdropFilter: "blur(5px)",backgroundColor:'rgb(0 60 245 / 30%)'}}
-            open={props.open}
-            onClose={()=>dispatch( closeVolunteer())}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-        >
+        <Container>
             <Box sx={style} style={{border:'none',borderRadius: 28}}>
                 <Typography variant="h4" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
                     Хотите стать волонтером?
@@ -81,12 +74,12 @@ function ModalVolunteer(props) {
                     <FormGroup style={{display:"flex",alignItems:'center',justifyContent:'space-between'}}>
                         <TextField
                             required
-                        value={userInput}
-                        onChange={handleUserInput}
-                        label="ФИО"
-                        variant="outlined"
-                        style={{width:'100%',marginBottom:20}}
-                    />
+                            value={userInput}
+                            onChange={handleUserInput}
+                            label="ФИО"
+                            variant="outlined"
+                            style={{width:'100%',marginBottom:20}}
+                        />
                         <FormControlLabel sx={{alignSelf:'flex-start'}} control={<Checkbox />} label="Хочу помогать индивидуально" />
                         <div style={{display:'flex',width:'100%',flexDirection:'column',margin:'20px 0 20px 0'}}>
                             <div style={{display:'flex'}}>
@@ -130,12 +123,12 @@ function ModalVolunteer(props) {
                                     backgroundColor:'#1043c5',
                                     width:'100%',
                                     marginTop:20
-                            }
+                                }
                             }>Стать волонтером</Button>
                     </FormGroup>
                 </FormControl>
             </Box>
-        </Modal>
+        </Container>
     );
 }
 export default ModalVolunteer;

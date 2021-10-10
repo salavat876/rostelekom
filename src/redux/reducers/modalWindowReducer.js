@@ -13,12 +13,6 @@ export const modalWindowReducer = (state = initialState, action) => {
         case CLOSE_MODAL_WINDOW: {
             return {...state,isOpen: false}
         }
-        case 'OPEN_VOLUNTEER':{
-            return {...state,isOpenVolunteer: true}
-        }
-        case 'CLOSE_VOLUNTEER':{
-            return {...state,isOpenVolunteer: false}
-        }
         default:return state
     }
 }

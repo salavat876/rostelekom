@@ -43,7 +43,12 @@ const Dashboard = () => {
         latitude,
         longitude,
         error,
-    } = usePosition(watch, { enableHighAccuracy : true });
+    } = usePosition(watch);
+    useEffect(()=>{
+       if(latitude){
+           console.log(latitude,longitude,error)
+       }
+    },[latitude])
     const { date, time, wish } = useDate();
     return (
             <Container maxWidth="lg">
