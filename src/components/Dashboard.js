@@ -8,7 +8,8 @@ import * as React from "react";
 import {usePosition} from 'use-position'
 import axios from "axios";
 import $ from "jquery";
-const words = ['Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской']
+import gosUslugiImg from '../img/полоска госуслуг.png'
+const words = ['Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской'];
 const useDate = () => {
 
     const locale = 'ru';
@@ -53,6 +54,13 @@ const Dashboard = () => {
     const { date, time, wish } = useDate();
     return (
             <Container maxWidth="lg">
+                <img style={{
+                    top: '75px',
+                    position: 'absolute',
+                    width: '60%',
+                    borderRadius: '6px'
+                }
+                } src={gosUslugiImg} alt="gosuslugibanner"/>
                 <Grid container
                       sx={{backgroundColor:"white", borderRadius:7,padding: 6 }} justifyContent="space-between">
                     <Grid item xs={12} md={8} style={{padding:25}}>
