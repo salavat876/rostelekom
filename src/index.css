@@ -22,3 +22,39 @@ code {
 .unvisible-alert{
     display: none !important;
 }
+.advices{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+.advice{
+    display: flex;
+    align-items: flex-start;
+    width: calc(50% - 15px);
+    margin-bottom: 20px;
+}
+
+.advice figcaption {
+    display: block;
+    width: 375px;
+}
+
+.advice img{
+    display: block;
+    width: 180px;
+    height: auto;
+}
+
+.advice h3{
+    color: #18214d;
+}
+
+.advice p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -.3px;
+    color: #3e4462;
+}

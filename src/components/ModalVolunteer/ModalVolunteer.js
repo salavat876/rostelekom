@@ -50,7 +50,7 @@ function ModalVolunteer(props) {
             .catch(err => console.log(err))
     }
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
             <Box sx={style} style={{border:'none',borderRadius: 28}}>
                 <Typography variant="h3" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
                     Хотите стать волонтером?
