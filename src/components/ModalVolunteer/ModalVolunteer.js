@@ -11,11 +11,10 @@ import {closeVolunteer} from "../../redux/actions/modalWindowAction";
 import {API_KEY} from "../../consts";
 
 const style = {
-    width:'92%',
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
+    p: 6,
+    px:20,
+    borderRadius: 7
 };
 
 function ModalVolunteer(props) {
@@ -50,12 +49,12 @@ function ModalVolunteer(props) {
             .catch(err => console.log(err))
     }
     return (
-        <Container maxWidth="md">
-            <Box sx={style} style={{border:'none',borderRadius: 28}}>
+        <Container maxWidth="lg">
+            <Box sx={style}>
                 <Typography variant="h3" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}}>
                     Хотите стать волонтером?
                 </Typography>
-                <Typography variant="h5" sx={{textAlign:'center',fontWeight:'bold'}}>Станьте волонтером,
+                <Typography variant="h5" sx={{textAlign:'center',mb:2}}>Станьте волонтером,
                     чтобы помогать другим, находить новых друзей,
                     путешествовать, участвовать в масштабных событиях,
                     получать уникальный опыт, а также пользоваться привилегиями за волонтерскую деятельность

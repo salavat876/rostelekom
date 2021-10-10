@@ -9,7 +9,7 @@ function App() {
   return (
      <>
          <NavBar/>
-         <main style={{marginTop:'8em'}}>
+         <main style={{marginTop:'7em'}}>
              <Route exact path='/news' component={Main} />
              <Route exact path='/volunteer' component={ModalVolunteer}/>
              <Route exact path='/covid-19' component={CovidPage}/>

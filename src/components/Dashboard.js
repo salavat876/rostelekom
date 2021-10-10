@@ -53,7 +53,7 @@ const Dashboard = () => {
     return (
             <Container maxWidth="lg">
                 <Grid container
-                      style={{backgroundColor:"white", borderRadius:20,padding: 19 }} justifyContent="space-between">
+                      sx={{backgroundColor:"white", borderRadius:7,padding: 6 }} justifyContent="space-between">
                     <Grid item xs={12} md={8} style={{padding:25}}>
                         <Box
                             sx={
