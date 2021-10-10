@@ -2,7 +2,7 @@ import {AppBar, Container, Toolbar, Typography} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 import {Link} from "react-router-dom";
-
+import covidImg from '../img/covid-19.png'
 const useStyles = makeStyles({
       titles:{
         textDecoration: "none",
@@ -33,7 +33,7 @@ const Footer = () => {
                 <Box display="flex">
                     <Typography
                         variant="h6" component="div" sx={{ flexGrow: 1, marginRight: 2}}>
-                        <Link className={classes.titles} to='/covid-19'>У меня ковид</Link>
+                        <Link className={classes.titles} to='/covid-19'><img style={{  height: 21,width: 24}} alt="covid-19" src={covidImg}/>Covid-19 </Link>
                     </Typography>
                     <Typography
                         variant="h6" component="div" sx={{ flexGrow: 1}}>
