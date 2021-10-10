@@ -119,7 +119,7 @@ const Dashboard = () => {
                       <Map
                           width={"100%"}
                           state={{
-                              center: [latitude, longitude],
+                              center: [latitude?latitude:54.314192, longitude?longitude:48.403132],
                               zoom: 15,
                           }}
 
