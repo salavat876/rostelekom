@@ -16,6 +16,7 @@ const useStyles = makeStyles({
 const Footer = () => {
     const classes = useStyles();
     return (
+        <footer>
         <AppBar position="static" sx={{backgroundColor: "#272e3d", mt: 5, height: 64}}>
             <Toolbar sx={{
               maxWidth: {
@@ -42,6 +43,7 @@ const Footer = () => {
                 </Box>
             </Toolbar>
         </AppBar>
+        </footer>
     )
 }
 

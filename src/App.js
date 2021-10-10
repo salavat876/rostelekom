@@ -11,7 +11,7 @@ function App() {
   return (
      <>
          <NavBar/>
-         <main style={{marginTop:'7em'}}>
+         <main style={{marginTop:'7em', minHeight: "calc(100vh - 64px - 7em - 40px)"}}>
              <Route exact path='/news' component={Main} />
              <Route exact path='/volunteer' component={ModalVolunteer}/>
              <Route exact path='/covid-19' component={CovidPage}/>
