@@ -22,7 +22,7 @@ const style = {
         xs: 1,
         sm: 20
     },
-    borderRadius: 7
+    borderRadius: "9px"
 };
 
 function ModalVolunteer(props) {
@@ -65,7 +65,7 @@ function ModalVolunteer(props) {
             .catch(err => console.log(err))
     }
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{marginTop:"-5rem"}}>
             <Box sx={style}>
                 <Typography variant="h3" component="h2" style={{marginBottom:15,fontWeight:'bold',textAlign:"center"}} sx={{fontSize:{xs: "1.75em", sm:"3em"}}}>
                     Хотите стать волонтером?

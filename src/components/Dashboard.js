@@ -54,15 +54,17 @@ const Dashboard = () => {
     const { date, time, wish } = useDate();
     return (
             <Container maxWidth="lg">
-                <img style={{
+                <a style={{textDecoration:'none'}} target="_blank" href="https://www.gosuslugi.ru/landing/vaccination"> <img
+                    style={{
                     top: '80px',
                     position: 'absolute',
-                    width: '60%',
+                    width: '1153px',
                     borderRadius: '6px'
                 }
-                } src={gosUslugiImg} alt="gosuslugibanner"/>
+                } src={gosUslugiImg} alt="gosuslugibanner"/></a>
+
                 <Grid container
-                      sx={{backgroundColor:"white", borderRadius:7,padding: 6 }} justifyContent="space-between">
+                      sx={{backgroundColor:"white", borderRadius:"6px",padding: 6 }} justifyContent="space-between">
                     <Grid item xs={12} md={8} style={{padding:25}}>
                         <Box
                             sx={
@@ -125,7 +127,7 @@ const Dashboard = () => {
                         marginTop:3,
                         overflow:'hidden',
                         backgroundColor:"white",
-                        borderRadius:7,
+                        borderRadius:"9px",
                           padding:6
                 }}>
                     <Typography sx={{marginBottom:2,fontWeight:'bold',fontSize:32}} variant="h4" component="h2">Ситуация на дорогах</Typography>

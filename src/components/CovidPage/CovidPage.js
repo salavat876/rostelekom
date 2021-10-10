@@ -11,7 +11,7 @@ const style = {
 };
 function CovidPage(props) {
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{marginTop: "-5rem"}}>
             <Box style={style} >
                 <Typography sx={{marginTop:2,paddingBottom:4,borderBottom:'1px solid #e2e6ec',color:'#18214d',fontSize:"56px"}} variant="h5">
                     Профилактика коронавируса:

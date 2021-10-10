@@ -41,7 +41,7 @@ export default function NavBar() {
         dispatch(modalWindowAction())
     }
   return (
-    <Box sx={{ flexGrow: 1,position:'sticky' }}>
+    <Box sx={{ flexGrow: 1, }}>
       <AppBar style={{backgroundColor:'#ffff'}} >
         <Toolbar className={classes.toolbar}  sx={{
             display: "flex",

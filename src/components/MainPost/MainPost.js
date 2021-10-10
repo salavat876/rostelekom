@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 const MainPost = () => {
     const classes = useStyles();
     return (
-        <Card sx={{ minWidth: 275, marginBottom: 5, padding: 2,borderRadius:5}}>
+        <Card sx={{ minWidth: 275, marginBottom: 5, padding: 2,borderRadius:'6px',marginTop:'-5rem'}}>
             <CardHeader
                 sx={{fontWeight:700}}
                 title="Ремонт дороги на ул.Ленина"

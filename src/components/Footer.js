@@ -40,6 +40,7 @@ const Footer = () => {
                         variant="h6" component="div" sx={{ flexGrow: 1}}>
                         <Link className={classes.titles} to='/feedback'>Обратная связь</Link>
                     </Typography>
+
                 </Box>
             </Toolbar>
         </AppBar>
