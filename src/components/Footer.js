@@ -33,13 +33,14 @@ const Footer = () => {
             }}>
                 <Box display="flex">
                     <Typography
-                        variant="h6" component="div" sx={{ flexGrow: 1, marginRight: 2}}>
+                        variant="h6" component="div" sx={{ flexGrow: 1, marginRight: 2,display:{xs:'block',sm:'none'}}}>
                         <Link className={classes.titles} to='/covid-19'><img style={{  height: 21,width: 24}} alt="covid-19" src={covidImg}/>Covid-19 </Link>
                     </Typography>
                     <Typography
                         variant="h6" component="div" sx={{ flexGrow: 1}}>
                         <Link className={classes.titles} to='/feedback'>Обратная связь</Link>
                     </Typography>
+
                 </Box>
             </Toolbar>
         </AppBar>

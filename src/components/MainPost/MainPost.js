@@ -16,19 +16,22 @@ const MainPost = () => {
         <Card sx={{ minWidth: 275, marginBottom: 5, padding: 2,borderRadius:5}}>
             <CardHeader
                 sx={{fontWeight:700}}
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
+                title="Ремонт дороги на ул.Ленина"
+                subheader="Октябрь 10, 2021"
             />
             <CardContent>
                 <Container>
                     <div className="content">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        Работы на улице Ленина ведутся в рамках нацпроекта
+                        «Безопасные качественные дороги». Осуществляется обновление асфальтобетонного покрытия,
+                        включая укладку в межрельсовом пространстве. Для удобства пассажиров электротранспорта
+                        планируется обустроить пять приподнятых остановочных платформ «венского» типа.
+                        Также на 14 пешеходных переходах будет обновлено освещение. На пересечении улиц Ленина и
+                        Гончарова выполнят модернизацию светофорных объектов,
+                        установят новые дорожные знаки, нанесут горизонтальную дорожную разметку из термопласта.
                     </div>
                 </Container>
             </CardContent>
-            <CardActions>
-                <Button size="small">Узнать больше</Button>
-            </CardActions>
         </Card>
     )
 }

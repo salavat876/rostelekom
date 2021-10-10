@@ -8,7 +8,7 @@ import * as React from "react";
 import {usePosition} from 'use-position'
 import axios from "axios";
 import $ from "jquery";
-const words = ['Отключение воды','Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской']
+const words = ['Отключение электричества','Ремонт газопровода','Ремонт дорог на инзенской']
 const useDate = () => {
 
     const locale = 'ru';
@@ -35,6 +35,7 @@ const useDate = () => {
   };
 
 const arr = [1,2,3,4,5,6,7]
+const news = ['Ремонт дороги на улице Ленина'];
 const arr2 = [1,2,3,4,5,6,7]
 
 const Dashboard = () => {
@@ -86,11 +87,11 @@ const Dashboard = () => {
                                 sx={{marginBottom: 1}}
                             >Что происходит прямо сейчас:</Typography>
                             {
-                                arr.slice(0, 5).map((item) => {
+                                arr.slice(0, 5).map((item,index) => {
                                     return(
                                         <Typography variant="h6" key={item} sx={{marginBottom: 1}}>
                                             <Link to="/news" style={{color:"blue", textDecoration:"none"}}>
-                                                Shrimp and Chorizo Paella
+                                                {news[index]}
                                             </Link>
                                         </Typography>)
                                 })
@@ -104,7 +105,7 @@ const Dashboard = () => {
                                 </Typography>
                             </Box>
                             {
-                                arr2.slice(0, 4).map((item,index) => {
+                                arr2.slice(0, 3).map((item,index) => {
                                     return(<Typography variant="body2" key={item} sx={{marginBottom: 2,fontSize:'1.09em'}}>{words[index]} с 14 до 16 </Typography>)
                                 })
                             }

@@ -14,11 +14,7 @@ const Main = () => {
                    textDecoration: 'none'}}><ArrowBackIosIcon/><span>Назад</span> </Link>
             </Container>
             <Container maxWidth="md">
-                    {
-                        arr.map((item) => {
-                            return(<MainPost key={item}/>)
-                        })
-                    }
+                <MainPost />
             </Container>
         </>
     )
